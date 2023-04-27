@@ -7,7 +7,7 @@
  * @c: counter
  * Return: Void 
  */
-void  _exit(char **t_argv, char *line, char **argv, int c)
+void _exit(char **t_argv, char *line, char **argv, int c)
 {
 	int stat, i = 0;
 
