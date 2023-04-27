@@ -7,8 +7,9 @@
  */
 void sigHandler(int num)
 {
-	if (num == SIGINT)
-		PRINTER("\n$ ");
+	(void)num;
+    write(STDERR_FILENO, "\n", 1);
+    exit(EXIT_SUCCESS);
 }
 
 /**
@@ -23,8 +24,6 @@ int main(__attribute__((unused)) int argc, char **argv)
 	char *line, **av_tok;
 	int i = 0, entry = 1, st = 0;
 
-    if (argc < 1)
-          return (-1);
 	if (argv[1] != NULL)
 		file_reader(argv[1], argv);
 	if (signal(SIGINT, sigHandler) == SIG_ERR)
@@ -37,6 +36,8 @@ int main(__attribute__((unused)) int argc, char **argv)
 		i++;
 		if (isatty(STDIN_FILENO))
 			prompt();
+		else
+            write(STDERR_FILENO, "", 0);
 		line = _getline();
 		if (line[0] == '\0')
 			continue;
@@ -52,9 +53,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 			continue;
 		}
 		else
-		{
 			st = execute(av_tok, line, i, argv);
-		}
 		free_buffers(av_tok, line);
 	}
 	return (entry);
