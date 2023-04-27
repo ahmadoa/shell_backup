@@ -1,13 +1,13 @@
 #include "main.h"
 /**
- * _exit - handle exit commands in the shell
+ * _exit_sh - handle exit commands in the shell
  * @t_argv: tokenized read line
  * @line: read line with no alterations
  * @argv: shell program name
  * @c: counter
  * Return: Void 
  */
-void _exit(char **t_argv, char *line, char **argv, int c)
+void _exit_sh(char **t_argv, char *line, char **argv, int c)
 {
 	int stat, i = 0;
 

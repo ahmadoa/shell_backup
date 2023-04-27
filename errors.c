@@ -35,7 +35,7 @@ void display_err(char *frcommand, int c, char **argv)
 
 	PRINTER(argv[0]);
 	PRINTER(": ");
-	er = _itoa(counter);
+	er = _itoa(c);
 	PRINTER(er);
 	free(er);
 	PRINTER(": ");

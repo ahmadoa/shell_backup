@@ -32,7 +32,7 @@ typedef struct built
 	int (*func)(char **line, int err);
 } builtin;
 
-void _exit(char **t_argv, char *line, char **argv, int c);
+void _exit_sh(char **t_argv, char *line, char **argv, int c);
 int _cd(char **t_argv, __attribute__((unused))int err);
 int display_env(__attribute__((unused)) char **t_argv, __attribute__((unused)) int err);
 int _echo(char **t_argv, int err);

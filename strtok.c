@@ -28,10 +28,10 @@ char *_strtok(char *s, const char *delim)
 	static char *first_tok, *second_tok;
 	unsigned int i;
 
-	if (str != NULL)
-		second_tok = str;
+	if (s != NULL)
+		second_tok = s;
 	first_tok = second_tok;
-	if (ts == NULL)
+	if (first_tok == NULL)
 		return (NULL);
 	for (i = 0; first_tok[i] != '\0'; i++)
 	{
@@ -59,5 +59,5 @@ char *_strtok(char *s, const char *delim)
 		if (*second_tok == '\0')
 			second_tok = NULL;
 	}
-	return (ts);
+	return (first_tok);
 }
