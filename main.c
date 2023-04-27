@@ -32,7 +32,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 		if (isatty(STDIN_FILENO))
 			prompt();
 		line = _getline();
-		if (argv[0] == '\0')
+		if (line[0] == '\0')
 			continue;
 		av_tok = tokenizer(line);
 		if (_strcmp(av_tok[0], "exit") == 0)
