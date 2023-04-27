@@ -23,9 +23,15 @@ int main(__attribute__((unused)) int argc, char **argv)
 	char *line, **av_tok;
 	int i = 0, entry = 1, st = 0;
 
+    if (argc < 1)
+          return (-1);
 	if (argv[1] != NULL)
 		file_reader(argv[1], argv);
-	signal(SIGINT, sigHandler);
+	if (signal(SIGINT, sigHandler) == SIG_ERR)
+    {
+          perror("signal");
+          exit(EXIT_FAILURE);
+    }
 	while (entry)
 	{
 		i++;
